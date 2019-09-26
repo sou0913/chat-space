@@ -1,4 +1,6 @@
-= link_to "#" do
-  %div.sidebar__main 
-    %p.sidebar__main__group sample group
-    %p.sidebar__main__message hello        
+- @groups.each do |group| 
+  = link_to "#" do
+    %div.sidebar__main 
+      %p.sidebar__main__group 
+        = group.name
+      %p.sidebar__main__message "まだメッセージはありません"
