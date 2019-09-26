@@ -1,6 +1,7 @@
-- @groups.each do |group| 
+- groups.each do |group| 
   = link_to group_messages_path(group) do
     %div.sidebar__main 
       %p.sidebar__main__group 
         = group.name
-      %p.sidebar__main__message "まだメッセージはありません"
+      %p.sidebar__main__message 
+        = group.show_last_message
