@@ -1,5 +1,5 @@
 - @groups.each do |group| 
-  = link_to "#" do
+  = link_to group_messages_path(group) do
     %div.sidebar__main 
       %p.sidebar__main__group 
         = group.name
