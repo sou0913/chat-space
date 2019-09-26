@@ -119,6 +119,7 @@ html,body {
         position: relative;
         
         &__message {
+          
           height: 100% ;
           width: 100% ;
           box-sizing: border-box ;
@@ -129,8 +130,11 @@ html,body {
           &:hover {
             cursor: pointer ;
           }
+          & i {
+            display: inline-block ;
+          }
           &__file {
-          display: none ;
+            display: none ;
           }
         }
       }

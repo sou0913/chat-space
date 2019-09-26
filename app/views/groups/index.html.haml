@@ -5,7 +5,7 @@
       %i.fa.fa-edit
     = link_to edit_user_path(current_user) do
       %i.fa.fa-cog
-  = render partial: "messages/sidebar__main"       
+  = render partial: "messages/sidebar__main", locals: {groups: @groups}       
 -# .main
 -#   .main__top
 -#     %h2 sample-group
