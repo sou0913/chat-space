@@ -11,10 +11,9 @@
   .main__top
     %h2 sample-group
     %p Menber : sou
-    -# =link_to edit_group_path(@group) do
-    %input.main__top__button{type: "button", value: "Edit"} 
-  #{render partial: "letters"}
-  #{render partial: "letters"}
+    -# =link_to  do
+    .main__top__button Edit 
+  = render partial: "letters"
   .main__foot
     .main__foot__container
       %input.main__foot__container__message{placeholder: "type a message"}
