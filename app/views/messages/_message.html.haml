@@ -1,9 +1,9 @@
-.main__letter
-  %p.main__letter__name 
+.main__contents__letter  
+  %p.main__contents__letter__name 
     = message.user.name
-  %p.main__letter__date 
+  %p.main__contents__letter__date 
     = message.created_at
-  %p.main__letter__message 
+  %p.main__contents__letter__message 
   - if message.body.present?
     = message.body
-  = image_tag message.image.url if message.image.present?
+  = image_tag message.image.url, class: 'main__letter___image-tag'  if message.image.present?
