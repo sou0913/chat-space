@@ -1,19 +1,20 @@
 $(function(){
   function buildHTML(message){
+
+    var htmlBody =`<p class = main__contents__letter__name>${message.user_name}</p>
+                    <p class = main__contents__letter__date>${message.created_at}</p>
+                    <p class = main__contents__letter__message>${message.body}</p>`;
+
     if (message.image.url) {
     var html = `<div class = main__contents__letter>  
-                  <p class = main__contents__letter__name>${message.user_name}</p>
-                  <p class = main__contents__letter__date>${message.created_at}</p>
-                  <p class = main__contents__letter__message>${message.body}</p>
+                  ${htmlBody}
                   <img src = "${message.image.url}">
                 </div>`
     return html; 
     } 
     else {
     var html = `<div class = main__contents__letter>  
-                <p class = main__contents__letter__name>${message.user_name}</p>
-                <p class = main__contents__letter__date>${message.created_at}</p>
-                <p class = main__contents__letter__message>${message.body}</p>
+                ${htmlBody}
               </div>`
     return html; 
     }
