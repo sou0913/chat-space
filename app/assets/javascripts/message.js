@@ -1,23 +1,18 @@
 $(function(){
   function buildHTML(message){
-
-    var htmlBody =`<p class = main__contents__letter__name>${message.user_name}</p>
-                    <p class = main__contents__letter__date>${message.created_at}</p>
-                    <p class = main__contents__letter__message>${message.body}</p>`;
-
-    if (message.image.url) {
-    var html = `<div class = main__contents__letter>  
-                  ${htmlBody}
-                  <img src = "${message.image.url}">
-                </div>`
-    return html; 
+    if (message.image.url) {  
+    var htmlImage = `<img src = "${message.image.url}">`
     } 
     else {
-    var html = `<div class = main__contents__letter>  
-                ${htmlBody}
-              </div>`
-    return html; 
+    var htmlImage = ""
     }
+    var html =`<div class = main__contents__letter> 
+                <p class = main__contents__letter__name>${message.user_name}</p>
+                <p class = main__contents__letter__date>${message.created_at}</p>
+                <p class = main__contents__letter__message>${message.body}</p>
+                ${htmlImage}
+              </div>`;
+    return html;
   }
   
   $('#message-form').on('submit', function(e){
