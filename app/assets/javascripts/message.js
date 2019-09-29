@@ -1,11 +1,7 @@
 $(function(){
   function buildHTML(message){
-    if (message.image.url) {  
-    var htmlImage = `<img src = "${message.image.url}">`
-    } 
-    else {
-    var htmlImage = ""
-    }
+var htmlImage = message.image.url? `<img src = "${message.image.url}">` : "" ;
+
     var html =`<div class = main__contents__letter> 
                 <p class = main__contents__letter__name>${message.user_name}</p>
                 <p class = main__contents__letter__date>${message.created_at}</p>
