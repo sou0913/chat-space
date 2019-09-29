@@ -13,10 +13,11 @@
     %p 
       = "Members : #{@group.get_members}"
     = link_to edit_group_path(@group)  do
-      .main__top__button Edit 
-  = render partial: "message", collection: @messages
+      .main__top__button Edit
+  .main__contents 
+    = render partial: "message", collection: @messages
   
-  = form_for ([@group, @message]) do |f|
+  = form_for [@group, @message], html: { class: "message-form", id: "message-form" } do |f|
     .main__foot
       .main__foot__container
         = f.text_field :body, class: "main__foot__container__message", placeholder: "type a message"
