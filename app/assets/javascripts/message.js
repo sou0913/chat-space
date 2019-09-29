@@ -34,8 +34,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main__contents').append(html);
-      $('.main__foot__container__message').val('');
-      $('.main__foot__container__label__file').val('');
+      $('#message-form')[0].reset();
       $('.main__contents').animate({ scrollTop: $('.main__contents')[0].scrollHeight});
       $('.main__foot__button').attr('disabled', false);
       $('.main__foot__button').attr('value', 'Send');
