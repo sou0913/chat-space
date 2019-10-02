@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(current_user.id)
     user.update(update_params)
-    redirect_to action: 'index', controller: 'messages'
+    redirect_to root_path
   end
 
   private
