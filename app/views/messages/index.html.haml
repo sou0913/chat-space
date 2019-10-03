@@ -1,4 +1,4 @@
-.sidebar
+.sidebar{data: {group_id: @group.id}} 
   .sidebar__top
     %p #{current_user.name}
     = link_to new_group_path, data: {"turbolinks" => false} do
@@ -8,13 +8,13 @@
   = render partial: "sidebar__main", locals: {groups: @groups}       
 .main
   .main__top
-    %h2 
+    %h2
       = @group.name
     %p 
       = "Members : #{@group.get_members}"
     = link_to edit_group_path(@group), data: {"turbolinks" => false}  do
       .main__top__button Edit
-  .main__contents 
+  .main__contents#main__contents
     = render partial: "message", collection: @messages
   
   = form_for [@group, @message], html: { class: "message-form", id: "message-form" } do |f|
@@ -25,3 +25,5 @@
           %i.fa.fa-image.fa-lg
           =f.file_field :image, class: "main__foot__container__label__file"
       = f.submit class:"main__foot__button", value: "Send"
+- content_for(:javascript) do
+  = javascript_include_tag "message"
