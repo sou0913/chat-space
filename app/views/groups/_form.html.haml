@@ -24,7 +24,7 @@
       - if (group.users.length != 0) 
         - group.users.each_with_index do |user, index| 
           .chat-group-user
-            %input{name: "group[user_ids][]", value: "#{user.id}", type: 'hidden'}
+            %input{name: "group[user_ids][]", value: "#{user.id}", class: "selected-user-list", type: 'hidden'}
             %p.chat-group-user__name
               = user.name
             .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn

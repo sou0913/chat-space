@@ -1,7 +1,11 @@
 $(function(){
 
   var search_result = $('#user-search-result');
-
+  var selectedUser = [];
+  $(".selected-user-list").each(function(){
+    selectedUser.push($(this).val());    
+  });
+  console.log(selectedUser)
   function buildHTML(user) {
     var html =  `<div class="chat-group-user clearfix">
                    <p class="chat-group-user__name">${user.name}</p>
@@ -17,11 +21,10 @@ $(function(){
   }
   $('.group-form').on('keyup',function(e){
     var input = $('#user-search-field').val();
-    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: {keyword: input},
+      data: {keyword: input, selected: selectedUser },
       dataType: 'json'
 
     })
@@ -50,14 +53,18 @@ $(function(){
   }
 
   $('.user-search-result').on('click', '.user-search-add', function(e){
-      var user_id    = $(this).data('user-id');
-      var user_name  = $(this).data('user-name');
-      html = buildUserHTML(user_id, user_name);
-      $(this).parent().remove()
-      $('#chat-group-form__field--right').append(html);
-
+    var user_id    = $(this).data('user-id');
+    var user_name  = $(this).data('user-name');
+    html = buildUserHTML(user_id, user_name);
+    $(this).parent().remove();
+    $('#chat-group-form__field--right').append(html);
+    selectedUser.push(user_id);
     })
   $('#chat-group-form__field--right').on('click', '.user-search-remove', function(e){
-    $(this). parent().remove()
+    var user_id = $(this).data("user-id");
+    $(this). parent().remove(); 
+    selectedUser = selectedUser.filter(function(id){
+      return id !== user_id;
+    })
   })
 })
