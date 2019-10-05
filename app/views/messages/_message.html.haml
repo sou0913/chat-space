@@ -2,7 +2,7 @@
   %p.main__contents__letter__name 
     = message.user.name
   %p.main__contents__letter__date 
-    = message.created_at.strftime("%Y-%m-%d %H:%M")
+    = message.created_at
   %p.main__contents__letter__message 
   - if message.body.present?
     = message.body
