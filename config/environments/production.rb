@@ -87,6 +87,6 @@ Rails.application.configure do
   config.assets.precompile += ['cable.js']
   config.assets.precompile += ['user.js']
 
-  config.time_zone = 'Tokyo'
+  
 
 end
